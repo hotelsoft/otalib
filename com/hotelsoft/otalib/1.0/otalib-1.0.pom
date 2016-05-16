@@ -8,6 +8,25 @@
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
+	<profiles>
+		<profile>
+			<id>bintray-repository</id>
+			<activation>
+				<property>
+					<name>useBinTray</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<distributionManagement>
+				<repository>
+					<id>bintray-hotelsoft-otalib</id>
+					<name>hotelsoft-otalib</name>
+					<url>https://api.bintray.com/maven/hotelsoft/otalib/otalib/;publish=1</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+	</profiles>
+
 	<properties>
 		<github.global.server>github</github.global.server>
 	</properties>
