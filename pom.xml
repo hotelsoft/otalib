@@ -6,7 +6,7 @@
 
 	<groupId>org.opentravel</groupId>
 	<artifactId>otalib</artifactId>
-	<version>1.0</version>
+	<version>1.0-RELEASE</version>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -43,5 +43,10 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	<distributionManagement>
+		<repository>
+			<id>hotelsoft</id>
+			<url>http://nexus.default.hotelsoft.com/content/repositories/releases/</url>
+		</repository>
+	</distributionManagement>
 </project>
