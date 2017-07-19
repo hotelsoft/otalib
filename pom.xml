@@ -15,7 +15,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	<packaging>jar</packaging>
+	<packaging>bundle</packaging>
 
 	<build>
 		<plugins>
@@ -26,6 +26,20 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>3.3.0</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Export-Package>org.opentravel.ota</Export-Package>
+						<Import-Package>
+							javax.xml.bind,javax.xml.bind.annotation,javax.xml.bind.annotation.adapters,javax.xml.datatype,javax.xml.namespace,org.w3c.dom
+						</Import-Package>
+					</instructions>
 				</configuration>
 			</plugin>
 			<plugin>
