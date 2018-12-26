@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.opentravel.org/OTA/2003/05/common" elementFormDefault="qualified" attributeFormDefault="unqualified" version="5.001" id="OTA2016B">
+<!-- edited with XMLSpy v2011 rel. 3 sp1 (http://www.altova.com) by Valerie Perini (OpenTravel Alliance) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.opentravel.org/OTA/2003/05/common" elementFormDefault="qualified" attributeFormDefault="unqualified" version="5.002" id="OTA2017B">
 	<xs:annotation>
 		<xs:documentation source="Description" xml:lang="en">ALL SCHEMA FILES IN THE OPENTRAVEL ALLIANCE SPECIFICATION ARE MADE AVAILABLE ACCORDING TO THE TERMS DEFINED BY THE OPENTRAVEL LICENSE AGREEMENT AT http://www.opentravel.org/Specifications/Default.aspx.</xs:documentation>
 	</xs:annotation>
@@ -1373,6 +1374,11 @@ Specifies the guest level price information.
 				<xs:documentation xml:lang="en">Specifies the Status of the package. Refer to OpenTravel Code table Status (STS).</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+		<xs:attribute name="ExtraGuestCount" type="xs:nonNegativeInteger" use="optional">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">Specifies extra guest quantity (not sailing on this booking).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="CruiseProfileType">
 		<xs:annotation>
@@ -1763,7 +1769,7 @@ Specifies the guest level price information.
 		<xs:complexContent>
 			<xs:extension base="SailingInfoType">
 				<xs:sequence>
-					<xs:element name="SelectedCategory" minOccurs="0" maxOccurs="2">
+					<xs:element name="SelectedCategory" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation xml:lang="en">Specifies a selected cabin category.</xs:documentation>
 						</xs:annotation>
@@ -1790,7 +1796,7 @@ Specifies the guest level price information.
 										</xs:sequence>
 									</xs:complexType>
 								</xs:element>
-								<xs:element name="SelectedCabin" minOccurs="0" maxOccurs="3">
+								<xs:element name="SelectedCabin" minOccurs="0" maxOccurs="unbounded">
 									<xs:annotation>
 										<xs:documentation xml:lang="en">Specifies the selected cabin information.</xs:documentation>
 									</xs:annotation>
@@ -1820,6 +1826,11 @@ Specifies the guest level price information.
 														</xs:complexType>
 													</xs:element>
 												</xs:sequence>
+												<xs:attribute name="GuestRefNumbers" type="ListOfNumericStringLength1to16" use="optional">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">Provides a reference pointer that links the cabin to the guest.</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
 											</xs:extension>
 										</xs:complexContent>
 									</xs:complexType>
@@ -2283,4 +2294,10 @@ language).</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
+	<xs:simpleType name="GuestRefNumbers">
+		<xs:annotation>
+			<xs:documentation>Provides a reference pointer that links one or more guests. (e.g. links guests to a cabin or to a dining table)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="ListOfNumericStringLength1to16"/>
+	</xs:simpleType>
 </xs:schema>

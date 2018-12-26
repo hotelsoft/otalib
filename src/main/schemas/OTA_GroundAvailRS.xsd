@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2011 rel. 3 sp1 (http://www.altova.com) by Valerie Perini (OpenTravel Alliance) -->
-<xs:schema xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.opentravel.org/OTA/2003/05" elementFormDefault="qualified" version="3.000" id="OTA2016B">
+<xs:schema xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.opentravel.org/OTA/2003/05" elementFormDefault="qualified" version="4.000" id="OTA2017B">
 	<xs:include schemaLocation="OTA_GroundCommonTypes.xsd"/>
 	<xs:annotation>
 		<xs:documentation source="Description" xml:lang="en">ALL SCHEMA FILES IN THE OPENTRAVEL ALLIANCE SPECIFICATION ARE MADE AVAILABLE ACCORDING TO THE TERMS DEFINED BY THE OPENTRAVEL LICENSE AGREEMENT AT http://www.opentravel.org/Specifications/Default.aspx.</xs:documentation>
@@ -54,18 +54,7 @@ Availability response information includes:
 													</xs:annotation>
 													<xs:complexType>
 														<xs:complexContent>
-															<xs:extension base="GroundServiceDetailType">
-																<xs:sequence>
-																	<xs:element name="VehicleMakeModel" minOccurs="0">
-																		<xs:annotation>
-																			<xs:documentation xml:lang="en">Vehicle make and model information.</xs:documentation>
-																		</xs:annotation>
-																		<xs:complexType>
-																			<xs:attributeGroup ref="VehicleMakeModelGroup"/>
-																		</xs:complexType>
-																	</xs:element>
-																</xs:sequence>
-															</xs:extension>
+															<xs:extension base="GroundServiceDetailType"/>
 														</xs:complexContent>
 													</xs:complexType>
 												</xs:element>

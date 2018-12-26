@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2011 rel. 3 sp1 (http://www.altova.com) by Valerie Perini (OpenTravel Alliance) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.opentravel.org/OTA/2003/05/common" elementFormDefault="qualified" version="3.000" id="OTA2016B">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.opentravel.org/OTA/2003/05/common"  elementFormDefault="qualified" version="4.000" id="OTA2017B">
 	<xs:annotation>
 		<xs:documentation source="Description" xml:lang="en">ALL SCHEMA FILES IN THE OPENTRAVEL ALLIANCE SPECIFICATION ARE MADE AVAILABLE ACCORDING TO THE TERMS DEFINED BY THE OPENTRAVEL LICENSE AGREEMENT AT http://www.opentravel.org/Specifications/Default.aspx.</xs:documentation>
 	</xs:annotation>
@@ -153,6 +153,14 @@ NOTE: Non-base charges, such as the basic price of the service are typically spe
 						<xs:annotation>
 							<xs:documentation source="Description" xml:lang="en">An extensible list of vehicle sizes.</xs:documentation>
 						</xs:annotation>
+					</xs:element>
+					<xs:element name="VehicleMakeModel" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Vehicle make and model information.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:attributeGroup ref="VehicleMakeModelGroup"/>
+						</xs:complexType>
 					</xs:element>
 					<xs:element name="MultimediaDescriptions" type="MultimediaDescriptionsType" minOccurs="0">
 						<xs:annotation>
@@ -1051,6 +1059,11 @@ NOTE: This instance of PaymentRules is typically used if there are payment rules
 					</xs:attribute>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="ServiceType" type="List_GroundServiceProvided" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">A ground service type. Select an enumerated value or use the "other_" literal and specify a type in the @extension attribute.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="ServiceLocation" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation source="Description" xml:lang="en">A collection of service locations.</xs:documentation>
@@ -1090,6 +1103,16 @@ NOTE: This instance of PaymentRules is typically used if there are payment rules
 									<xs:documentation source="Description" xml:lang="en">A reference to a specific shuttle vehicle defined in Vehicle.</xs:documentation>
 								</xs:annotation>
 							</xs:attribute>
+							<xs:attribute name="OriginInd" type="xs:boolean" use="optional">
+								<xs:annotation>
+									<xs:documentation source="Description" xml:lang="en">If true, this is the location where passengers will be picked up and/or board.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="DestinationInd" type="xs:boolean" use="optional">
+								<xs:annotation>
+									<xs:documentation source="Description" xml:lang="en">If true, this is the location where passengers where be dropped off and/or depart the shuttle.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
 						</xs:extension>
 					</xs:complexContent>
 				</xs:complexType>
@@ -1108,6 +1131,11 @@ NOTE: This instance of PaymentRules is typically used if there are payment rules
 		<xs:attribute name="ReservationReqInd" type="xs:boolean" use="optional">
 			<xs:annotation>
 				<xs:documentation source="Description" xml:lang="en">If true, a reservation is required to board the shuttle.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="TicketIssueInd" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation source="Description" xml:lang="en">If true, a ticket will be/ has been issued as part of the reservation.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
