@@ -1,30 +1,44 @@
-<jxb:bindings xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
-			  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			  version="1.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.0"
+		jaxb:extensionBindingPrefixes="xjc">
+	<jaxb:globalBindings>
+		<jaxb:serializable uid="1"/>
+		<jaxb:javaType name="java.util.Calendar" xmlType="xs:dateTime"
+				parseMethod="javax.xml.bind.DatatypeConverter.parseDateTime"
+				printMethod="javax.xml.bind.DatatypeConverter.printDateTime"/>
+		<jaxb:javaType name="java.util.Calendar" xmlType="xs:date"
+				parseMethod="javax.xml.bind.DatatypeConverter.parseDate"
+				printMethod="javax.xml.bind.DatatypeConverter.printDate"/>
+		<jaxb:javaType name="java.util.Calendar" xmlType="xs:time"
+				parseMethod="javax.xml.bind.DatatypeConverter.parseTime"
+				printMethod="javax.xml.bind.DatatypeConverter.printTime"/>
+	</jaxb:globalBindings>
 
-	<jxb:bindings schemaLocation="OTA_CommonTypes.xsd" node="/xs:schema">
-		<jxb:bindings
+	<jaxb:bindings schemaLocation="OTA_CommonTypes.xsd" node="/xs:schema">
+		<jaxb:bindings
 				node="//xs:element[@name='CalculationMethod']/xs:complexType/xs:sequence/xs:element[@name='Duration']/xs:complexType">
-			<jxb:bindings node=".//xs:attribute[@name='Value']">
-				<jxb:property name="ValueToFixError1"/>
-			</jxb:bindings>
-		</jxb:bindings>
-		<jxb:bindings node="//xs:element[@name='MaximumDuration']/xs:complexType">
-			<jxb:bindings node=".//xs:attribute[@name='Value']">
-				<jxb:property name="ValueToFixError2"/>
-			</jxb:bindings>
-		</jxb:bindings>
-		<jxb:bindings
+			<jaxb:bindings node=".//xs:attribute[@name='Value']">
+				<jaxb:property name="ValueToFixError1"/>
+			</jaxb:bindings>
+		</jaxb:bindings>
+		<jaxb:bindings node="//xs:element[@name='MaximumDuration']/xs:complexType">
+			<jaxb:bindings node=".//xs:attribute[@name='Value']">
+				<jaxb:property name="ValueToFixError2"/>
+			</jaxb:bindings>
+		</jaxb:bindings>
+		<jaxb:bindings
 				node="//xs:element[@name='StartAndEnd']/xs:complexType/xs:choice/xs:element[@name='Duration']/xs:complexType">
-			<jxb:bindings node=".//xs:attribute[@name='Value']">
-				<jxb:property name="ValueToFixError3"/>
-			</jxb:bindings>
-		</jxb:bindings>
-		<jxb:bindings
+			<jaxb:bindings node=".//xs:attribute[@name='Value']">
+				<jaxb:property name="ValueToFixError3"/>
+			</jaxb:bindings>
+		</jaxb:bindings>
+		<jaxb:bindings
 				node="//xs:complexType[@name='OntologyDistanceType']/xs:sequence/xs:element[@name='Distance']/xs:complexType">
-			<jxb:bindings node=".//xs:attribute[@name='Value']">
-				<jxb:property name="ValueToFixError4"/>
-			</jxb:bindings>
-		</jxb:bindings>
-	</jxb:bindings>
-</jxb:bindings>
+			<jaxb:bindings node=".//xs:attribute[@name='Value']">
+				<jaxb:property name="ValueToFixError4"/>
+			</jaxb:bindings>
+		</jaxb:bindings>
+	</jaxb:bindings>
+</jaxb:bindings>

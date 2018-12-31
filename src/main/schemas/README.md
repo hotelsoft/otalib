@@ -4,7 +4,7 @@ OTA schemas will be used to generate java objects.  We only use Hotel specif sch
 
 ## Generate sources
 ```
-xjc -d ../src/ -b binding.xjb OTA_Hotel*
+xjc -d ../java/ -b binding.xjb OTA_Hotel*
 ```
 
 
